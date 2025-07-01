@@ -6,7 +6,7 @@ from pydantic import BaseModel
 from typing import Optional
 
 class InscriptionModel(BaseModel):
-    # id : Optional[int]
+    id : Optional[int]
     nom : str
     email : str
     password : str
@@ -46,6 +46,7 @@ class InscriptionModel(BaseModel):
 
 # "0c402bb9847bd3ac09f68da2e0e2e721fd7780423279cc92bbed7f17f04df998"
 # os.getenv("JWT_SECRET", "valeur_par_defaut")
+
 class Parametres(BaseModel):
     # secret_key: str =
     authjwt_secret_key: str = "0c402bb9847bd3ac09f68da2e0e2e721fd7780423279cc92bbed7f17f04df998" # Clé secrète pour JWT (JSON Web Token), généré par la commande secrets.token_hex() dans l'invite de commande Python
@@ -53,3 +54,32 @@ class Parametres(BaseModel):
 class ConnexionModel(BaseModel):
     nom: str
     password: str
+    
+class CommandeModel(BaseModel):
+    id : Optional[int]
+    quantite : int
+    statut_commande : Optional[str]="EN_ATTENTE"
+    taille_pizza : Optional[str]="PETITE"
+    id_utilisateur : Optional[int]
+    
+    class Config:
+        orm_mode = True 
+        schema_extra = {                  
+        #Exemple de données pour la documentation (Swagger UI)
+            "example": {
+                "quantite": 1,
+                "taille_pizza": "PETITE"
+            }
+        }
+        
+class CommandeStatutModel(BaseModel):
+    statut_commande: Optional[str] = "EN_ATTENTE"
+
+    class Config:
+        orm_mode = True 
+        schema_extra = {                  
+        #Exemple de données pour la documentation (Swagger UI)
+            "example": {
+                "statut_commande" : "EN_LIVRAISON"
+            }
+        }
