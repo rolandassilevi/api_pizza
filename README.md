@@ -10,13 +10,14 @@ Cette API REST sert un service de livraison de pizzas, conçue avec **FastAPI**,
 |-----------|----------------------------------------|-----------------------------------------------|------------------|
 | **POST**  | `/auth/inscription/`                        | Enregistrer un nouvel utilisateur             | Tous les utilisateurs |
 | **POST**  | `/auth/connexion/`                         | Authentifier un utilisateur                   | Tous les utilisateurs |
+| **GET**   | `/auth/actualiser/`                         | Créer un token actualisé                  | Tous les utilisateurs |
 | **POST**  | `/commandes/commande/`                       | Passer une commande                           | Tous les utilisateurs |
 | **PUT**   | `/commandes/commande/update/{id_commande}/`     | Mettre à jour une commande                    | Tous les utilisateurs |
 | **PUT**   | `/commandes/commande/statut/{id_commande}/`     | Mettre à jour le statut d’une commande        | Super-utilisateur     |
 | **DELETE**| `/commandes/commande/delete/{id_commande}/`     | Supprimer une commande                        | Tous les utilisateurs |
 | **GET**   | `/commandes/utilisateur/commandes/`                 | Récupérer toutes les commandes d’un utilisateur | Tous les utilisateurs |
-| **GET**   | `/commandes/commande/`                      | Lister toutes les commandes                    | Super-utilisateur     |
-| **GET**   | `/commandes/commande/{id_commande}/`           | Récupérer une commande par son identifiant     | Super-utilisateur     |
+| **GET**   | `/commandes/commandes/`                      | Lister toutes les commandes                    | Super-utilisateur     |
+| **GET**   | `/commandes/commandes/{id_commande}/`           | Récupérer une commande par son identifiant     | Super-utilisateur     |
 | **GET**   | `/commandes/utilisateur/commandes/{id_commande}/`       | Récupérer une commande spécifique d’un utilisateur | Tous les utilisateurs |
 | **GET**   | `/docs/`                               | Afficher la documentation interactive (Swagger) | Tous les utilisateurs |
 
