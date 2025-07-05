@@ -70,6 +70,7 @@ async def inscription(utilisateur: InscriptionModel):
         ```
 
     """
+   
     db_email = session.query(Utilisateur).filter(Utilisateur.email == utilisateur.email).first() # Vérification de l'existance de l'email (l'unicité de l'email)
     if db_email is not None:
         return HTTPException(
